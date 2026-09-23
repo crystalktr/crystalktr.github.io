@@ -1,10 +1,159 @@
-html<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>My First GitHub Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Katia Arshinova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F9F8F6;
+      --text: #1A1A1A;
+      --muted: #888;
+      --accent: #C2B8A3;
+      --photo-size: 220px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #141414;
+        --text: #EDEBE6;
+        --muted: #777;
+        --accent: #4A4540;
+      }
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      padding-top: calc(env(safe-area-inset-top, 0px) + 0px);
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 48px);
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      gap: 32px;
+      padding: 28px 10%;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    /* MAIN */
+    .page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 73px);
+      padding: 48px 24px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 56px;
+      width: 100%;
+      max-width: 960px;
+      padding: 0 10%;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        padding: 0;
+      }
+      nav { padding: 24px 6%; }
+    }
+
+    .photo-wrap { flex-shrink: 0; }
+
+    .photo {
+      width: var(--photo-size);
+      height: var(--photo-size);
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-placeholder {
+      width: var(--photo-size);
+      height: var(--photo-size);
+      background: linear-gradient(135deg, var(--accent) 0%, #E8E0D0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .text { display: flex; flex-direction: column; gap: 16px; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text);
+      max-width: 44ch;
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to my website!</h1>
-    <p>This page is hosted entirely for free on GitHub Pages.</p>
+  <nav>
+    <a href="#">About</a>
+    <a href="cv.pdf" target="_blank">CV</a>
+  </nav>
+
+  <div class="page">
+    <main class="card">
+      <div class="photo-wrap">
+        <img class="photo" src="photo_id.jpg" alt="Katia Arshinova" />
+      </div>
+
+      <div class="text">
+        <h1>Katia Arshinova</h1>
+        <p>
+          Hello! I'm a first year PhD student at Boston University, advised by Kyle Deeds and John Liagourios. Currently I'm working on an MPC database engine.
+        </p>
+        <p>
+          In my free time, I am amateuring at gymnastics, painting, and road tripping.
+        </p>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
